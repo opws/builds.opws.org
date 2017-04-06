@@ -1,0 +1,66 @@
+name: DNS-O-Matic
+password:
+  value:
+    length:
+      min: 8
+      max: 256
+  contents:
+    required:
+    - classes:
+      - upper
+      - lower
+      - digit
+      - punct
+    blacklist:
+      variables:
+      - username # or "part of" your username?
+  reset:
+    flow:
+      request:
+        url: https://www.dnsomatic.com/account/#pwdreset
+        form:
+          email:
+            input: required
+      response:
+        email:
+          sender: accounts@dnsomatic.com
+          body: [url, username]
+        expire: 3h
+      submit:
+        sessions:
+          own: login
+        expire: now
+  change:
+    url: https://www.dnsomatic.com/account/
+    form:
+      oldpassword:
+        input: none
+username:
+  value:
+    length:
+      min: 3
+      max: 25
+    mustnot:
+    - en: begin or end with a non-alphanumeric character
+  contents:
+    whitelist:
+      classes:
+      - alpha
+      - digit
+      strings: ['_', '.', '-']
+registration:
+  url: https://www.dnsomatic.com/create/
+  form:
+    password:
+      input: required
+    repeat:
+      password:
+        input: none
+login:
+  url: https://www.dnsomatic.com/account/
+thirdparty:
+  auth:
+    providers:
+    - opendns.com
+reviewed:
+  date: 2016-03-09T00:25:02.270Z

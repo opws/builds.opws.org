@@ -1,0 +1,82 @@
+name: Udemy
+password:
+  value:
+    length:
+      min: 6
+      max: 64
+  reset:
+    flow:
+      request:
+        url: https://www.udemy.com/user/forgot-password
+        form:
+          email:
+            input: required
+          captcha:
+            type: recaptcha
+      response:
+        email:
+          sender: no-reply@e.udemymail.com
+          body: [firstname, link]
+      change:
+        form:
+          newpassword:
+            masking: masked
+          repeat:
+            newpassword:
+              input: required
+              masking: masked
+      submit:
+        destination:
+          page: home
+        sessions:
+          own: logout
+        expire: now
+  change:
+    url: https://www.udemy.com/user/edit-account/#password
+    form:
+      oldpassword:
+        input: required
+        masking: masked
+      newpassword:
+        masking: masked
+      repeat:
+        newpassword:
+          input: required
+          masking: masked
+registration:
+  url: https://www.udemy.com/join/signup-popup/
+  form:
+    fullname:
+      input: required
+    email:
+      input: required
+    password:
+      input: required
+      masking: masked
+    repeat:
+      email:
+        input: none
+      password:
+        input: none
+    terms:
+      agreement: implicit
+login:
+  url: https://www.udemy.com/join/login-popup/
+  form:
+    email:
+      input: required
+    password:
+      masking: masked
+thirdparty:
+  auth:
+    providers:
+    - facebook.com
+    - google.com
+legal:
+  documents:
+  - name: Terms of Use
+    url: https://www.udemy.com/terms/
+  - name: Privacy Policy
+    url: https://www.udemy.com/terms/privacy/
+reviewed:
+  date: 2017-02-12T00:47:03.655Z

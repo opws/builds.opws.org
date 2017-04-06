@@ -1,0 +1,18 @@
+name: The A.V. Club
+password:
+  value:
+    length:
+      min: 1
+  reset:
+    flow:
+      request:
+        url: http://www.avclub.com/users/reset_password/
+        form:
+          email:
+            input: required
+  change:
+    url: http://www.avclub.com/users/me/settings/
+login:
+  url: http://www.avclub.com/login/
+reviewed:
+  date: 2015-06-16T04:15:35.176Z

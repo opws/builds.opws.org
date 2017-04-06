@@ -1,0 +1,38 @@
+name: UltraHook
+password:
+  value:
+    length:
+      min: 1
+registration:
+  url: http://www.ultrahook.com/register
+  form:
+    firstname:
+      input: required
+    lastname:
+      input: required
+    email:
+      input: required
+    password:
+      input: required
+      masking: masked
+    repeat:
+      password:
+        input: required
+        masking: masked
+      email:
+        input: none
+    username:
+      input: required
+    terms:
+      agreement: checkbox
+  notes:
+  - en: >
+      "username" is technically "webhook namespace".
+legal:
+  documents:
+  - name: Terms of Service
+    url: http://www.ultrahook.com/terms
+  - name: Privacy Policy
+    url: http://www.ultrahook.com/privacy
+reviewed:
+  date: 2017-02-14T09:47:47.262Z

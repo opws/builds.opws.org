@@ -1,0 +1,1 @@
+opws_jsonp_response("2017-04-06T12:04:08.212Z",{"domain":"builds.opws.org","filename":"/v0.1/latest/BUILD_TIMESTAMP.js"})

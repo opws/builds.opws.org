@@ -1,0 +1,36 @@
+name: DreamHost
+password:
+  value:
+    length:
+      min: 8
+      max: 1024
+    mustnot:
+    - en: start or end with a space
+    blacklist:
+      dictionaries:
+      - theme: english
+  reset:
+    flow:
+      request:
+        url: https://panel.dreamhost.com/login/forgot.cgi
+        form:
+          email:
+            input: required
+      response:
+        email:
+          sender: support@dreamhost.com
+          body: [firstname, origin, url]
+        expire: 8h
+      submit:
+        destination:
+          page: login
+        expire: now
+  change:
+    url: https://panel.dreamhost.com/index.cgi?tree=billing.secure
+    form:
+      oldpassword:
+        input: required
+login:
+  url: https://panel.dreamhost.com/
+reviewed:
+  date: 2016-04-26T12:34:20.172Z

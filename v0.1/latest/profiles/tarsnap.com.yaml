@@ -1,0 +1,44 @@
+name: Tarsnap
+password:
+  change:
+    url: https://www.tarsnap.com/manage.cgi?action=chpassform
+    form:
+      oldpassword:
+        input: required
+        masking: masked
+      newpassword:
+        masking: masked
+      repeat:
+        newpassword:
+          input: required
+          masking: masked
+  reset:
+    notes:
+    - url: https://www.tarsnap.com/faq.html#forgotten-password
+registration:
+  url: https://www.tarsnap.com/register.cgi
+  form:
+    email:
+      input: required
+    password:
+      input: required
+      masking: masked
+    repeat:
+      password:
+        input: required
+        masking: masked
+    terms:
+      agreement: checkbox
+legal:
+  documents:
+  - name: Terms and Conditions
+    url: https://www.tarsnap.com/legal.html
+login:
+  url: https://www.tarsnap.com/manage.cgi
+  form:
+    email:
+      input: required
+    password:
+      masking: masked
+reviewed:
+  date: 2017-02-20T17:28:01.297Z

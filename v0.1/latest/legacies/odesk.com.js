@@ -1,0 +1,1 @@
+opws_jsonp_response([{"circa":"2015-05-05","moved":{"to":"upwork.com"}}],{"domain":"builds.opws.org","filename":"/v0.1/latest/legacies/odesk.com.js"})

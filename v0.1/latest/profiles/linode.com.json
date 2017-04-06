@@ -1,0 +1,1 @@
+{"name":"Linode","password":{"contents":{"required":[{"atleast":2,"classes":["lower","upper","digit","punct"]}]},"reset":{"flow":{"request":{"url":"https://manager.linode.com/session/forgot/password","form":{"username":{"input":"required"}}}}},"change":{"url":"https://manager.linode.com/profile/index#password"}},"reviewed":{"date":"2013-05-06T11:07:47Z"}}

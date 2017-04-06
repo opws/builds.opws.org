@@ -1,0 +1,1 @@
+opws_jsonp_response({"name":"WordPress","password":{"reset":{"flow":{"request":{"url":"https://en.wordpress.com/wp-login.php?action=lostpassword","form":{"account":{"accepts":["username","email"]}}}}}},"reviewed":{"date":"2013-12-16T01:09:25Z"}},{"domain":"builds.opws.org","filename":"/v0.1/latest/profiles/wordpress.com.js"})

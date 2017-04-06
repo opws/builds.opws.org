@@ -1,0 +1,77 @@
+name: LinkedIn
+password:
+  value:
+    length:
+      min: 6
+    mustnot:
+    - en: be all the same character
+  reset:
+    flow:
+      request:
+        url: https://www.linkedin.com/passwordReset
+        form:
+          account:
+            accepts: [email, phone]
+      response:
+        email:
+          sender: security-noreply@linkedin.com
+          body: [firstname, link, url]
+        expire: 24h
+      change:
+        form:
+          newpassword:
+            masking: masked
+          repeat:
+            newpassword:
+              input: required
+              masking: masked
+      submit:
+        destination:
+          page: stub
+          notes:
+          - en: The stub page includes a "Sign In" link, even though you
+                are signed in after submitting the new password.
+        sessions:
+          own: login
+          notes:
+          - en: The form to submit the password includes a checkbox
+                to control whether other sessions should be logged
+                out or not.
+  change:
+    url: https://www.linkedin.com/psettings/change-password
+    form:
+      oldpassword:
+        input: required
+        masking: masked
+      newpassword:
+        masking: masked
+      repeat:
+        newpassword:
+          input: required
+          masking: masked
+    sessions:
+      own: unchanged
+      notes:
+      - en: The form to submit the password includes a checkbox
+            to control whether other sessions should be logged
+            out or not.
+registration:
+  url: https://www.linkedin.com/start/join
+  form:
+    password:
+      input: required
+      masking: masked
+    repeat:
+      email:
+        input: none
+      password:
+        input: none
+thirdparty:
+  auth:
+    providers:
+    - facebook.com
+sessions:
+  management:
+    url: https://www.linkedin.com/psettings/sessions
+reviewed:
+  date: 2017-02-10T02:00:44.474Z

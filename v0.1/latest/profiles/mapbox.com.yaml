@@ -1,0 +1,79 @@
+name: MapBox
+password:
+  value:
+    length:
+      min: 8
+  reset:
+    flow:
+      request:
+        url: https://www.mapbox.com/#active1
+        form:
+          email:
+            input: required
+      response:
+        email:
+          sender: noreply@mapbox.com
+          body: [username, link]
+        expire: 24h
+      change:
+        form:
+          newpassword:
+            masking: masked
+          repeat:
+            newpassword:
+              input: required
+              masking: masked
+      submit:
+        destination:
+          page: home
+        sessions:
+          own: login
+        expire: now
+  change:
+    url: https://www.mapbox.com/studio/account/changepassword/
+    form:
+      oldpassword:
+        input: none
+      newpassword:
+        masking: masked
+      repeat:
+        newpassword:
+          input: required
+          masking: masked
+username:
+  value:
+    length:
+      min: 2
+      max: 32
+  contents:
+    whitelist:
+      classes:
+      - lower
+      - digit
+registration:
+  url: https://www.mapbox.com/signup/
+  form:
+    username:
+      input: required
+    email:
+      input: required
+    password:
+      input: required
+      masking: masked
+    terms:
+      agreement: implicit
+login:
+  url: https://www.mapbox.com/#signin
+  form:
+    account:
+      accepts: [username, email]
+    password:
+      masking: masked
+legal:
+  documents:
+  - name: Terms of Service
+    url: https://www.mapbox.com/tos/
+  - name: Privacy Policy
+    url: https://www.mapbox.com/privacy/
+reviewed:
+  date: 2017-02-14T08:13:31.422Z

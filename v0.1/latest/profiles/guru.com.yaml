@@ -1,0 +1,39 @@
+name: Guru.com
+password:
+  value:
+    length:
+      min: 8
+      max: 35
+  reset:
+    flow:
+      request:
+        url: http://www.guru.com/forgotsignin.aspx
+        form:
+          email:
+            input: required
+      response:
+        email:
+          body: [username, link]
+      submit:
+        sessions:
+          own: unchanged # assumed based on previous "token.login: no"
+  change:
+    url: https://www.guru.com/pro/modifyaccount.aspx?tab=3
+    form:
+      oldpassword:
+        input: required
+      newpassword:
+        masking: revealable
+      repeat:
+        newpassword: # previously described in a comment? TODO: check this
+          input: required
+          masking: masked
+login:
+  url: https://www.guru.com/login.aspx
+  form:
+    password:
+      masking: revealable
+registration:
+  url: https://www.guru.com/registeraccount.aspx
+reviewed:
+  date: 2013-10-22T06:29:22Z

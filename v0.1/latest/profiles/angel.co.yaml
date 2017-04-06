@@ -1,0 +1,40 @@
+name: AngelList
+password:
+  value:
+    length:
+      min: 8
+      max: 128
+  contents:
+    required:
+    - classes:
+      - graph
+  reset:
+    flow:
+      request:
+        url: https://angel.co/users/password/new
+        form:
+          email:
+            input: required
+      response:
+        email:
+          sender: team@angel.co
+          body: [link]
+  change:
+    url: https://angel.co/settings/password
+    form:
+      oldpassword:
+        input: required
+    sessions:
+      own: logout
+registration:
+  url: https://angel.co/join
+login:
+  url: https://angel.co/login
+thirdparty:
+  auth:
+    providers:
+    - twitter.com
+    - facebook.com
+    - linkedin.com
+reviewed:
+  date: 2015-06-09T22:24:40.201Z

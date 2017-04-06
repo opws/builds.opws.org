@@ -1,0 +1,1 @@
+opws_jsonp_response([{"circa":"2014-07-15","moved":{"to":"openhub.net"},"notes":[{"url":"http://blog.openhub.net/2014/07/black-duck-open-hub/"}]}],{"domain":"builds.opws.org","filename":"/v0.1/latest/legacies/ohloh.net.js"})

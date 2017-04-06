@@ -1,0 +1,1 @@
+{"name":"LaptopScreen.com","password":{"value":{"length":{"min":6}},"reset":{"flow":{"request":{"url":"https://www.laptopscreen.com/English/section/password-recovery/","form":{"email":{"input":"required"}}}}},"change":{"url":"https://www.laptopscreen.com/English/profile/"}},"reviewed":{"date":"2013-06-16T01:33:52Z"}}

@@ -1,0 +1,1 @@
+opws_jsonp_response({"name":"Flattr","password":{"reset":{"flow":{"request":{"url":"https://flattr.com/forgot","form":{"email":{"input":"required"}}}}},"change":{"url":"https://flattr.com/authaccounts/editpassword"}},"reviewed":{"date":"2014-01-15T04:41:29Z"}},{"domain":"builds.opws.org","filename":"/v0.1/latest/profiles/flattr.com.js"})

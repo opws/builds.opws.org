@@ -1,0 +1,1 @@
+opws_jsonp_response({"name":"Wikipedia","use":"wikimedia.org","reviewed":{"date":"2013-10-13T05:56:59Z"}},{"domain":"builds.opws.org","filename":"/v0.1/latest/profiles/wikipedia.org.js"})

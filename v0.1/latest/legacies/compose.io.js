@@ -1,0 +1,1 @@
+opws_jsonp_response([{"circa":"2017-07-07","moved":{"to":"compose.com"},"notes":[{"url":"https://www.compose.com/articles/compose-notes-hello-to-compose-com-mongodb-and-etcd-updates/"}]}],{"domain":"builds.opws.org","filename":"/v0.1/latest/legacies/compose.io.js"})

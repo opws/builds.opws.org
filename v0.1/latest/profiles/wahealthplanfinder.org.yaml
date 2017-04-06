@@ -1,0 +1,84 @@
+name: Washington Healthplanfinder
+password:
+  value:
+    length:
+      min: 8
+      max: 20
+  contents:
+    required:
+    - classes:
+      - upper
+      - lower
+      - digit
+    - atleast: 1
+      strings: ['!', '$', '#', '^']
+    blacklist:
+      classes:
+      - space
+  reset:
+    flow:
+      request:
+        url: https://www.wahealthplanfinder.org/HBEWeb/Annon_DisplayForgotPasswordGetUserName.action
+        form:
+          username:
+            input: required
+  change:
+    url: https://www.wahealthplanfinder.org/HBEWeb/DisplayPasswordChangePassword.action
+    form:
+      oldpassword:
+        input: required
+username:
+  value:
+    length:
+      min: 6
+      max: 20
+  contents:
+    required:
+    - classes:
+      - alpha
+      - digit
+    whitelist:
+      classes:
+      - alpha
+      - digit
+      strings: ['.', '_', '$']
+  reminder:
+    request:
+      url: https://www.wahealthplanfinder.org/HBEWeb/Annon_DisplayForgotUserName.action
+      form:
+        email:
+          input: required
+challenge:
+  questions:
+  - required: 3
+    options:
+    - What is your oldest sibling's middle name?
+    - What was the first name of your childhood best friend?
+    - In what city were you born?
+    - What was the make of your first car?
+    - What was the name of the company that you worked at for your first job?
+    - What is your favorite pet's name?
+    - What is your favorite author's last name?
+    - What is the month and year of your oldest sibling's birthday? (e.g., January 1970)
+    - What was the name of your high school?
+    - What was the name of your elementary school?
+    - In which town was your first job?
+  answers:
+    value:
+      length:
+        min: 2
+      must:
+      - en: be different for each question
+      mustnot:
+      - en: include "special characters"
+      - en: contain more than one space between words
+registration:
+  url: https://www.wahealthplanfinder.org/HBEWeb/Annon_DisplayCreateAccountLanding.action
+  form:
+    email:
+      input: required
+    repeat:
+      email:
+        input: required
+reviewed:
+  date: 2015-04-16T22:57:22.648Z

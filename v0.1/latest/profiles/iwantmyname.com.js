@@ -1,0 +1,1 @@
+opws_jsonp_response({"name":"iWantMyName","password":{"reset":{"flow":{"request":{"url":"https://iwantmyname.com/reset_password","form":{"account":{"accepts":["email","domain"]}}}}},"change":{"url":"https://iwantmyname.com/dashboard/account/login"}},"reviewed":{"date":"2013-12-23T02:56:58Z"}},{"domain":"builds.opws.org","filename":"/v0.1/latest/profiles/iwantmyname.com.js"})

@@ -1,0 +1,90 @@
+name: Google
+username:
+  value:
+    length:
+      min: 6
+      max: 30
+  contents:
+    whitelist:
+      classes:
+      - alpha
+      - digit
+      strings: ['.']
+  notes:
+  - en: >
+      "Username" here describes the name for Gmail addresses. Users do not have
+      to set up a Gmail account name if they use their own email address.
+password:
+  value:
+    length:
+      min: 8
+    blacklist:
+      dictionaries:
+      - theme: common
+      notes:
+      - en: >
+          "Recently-used" passwords are rejected as well.
+    mustnot:
+    - en: start or end with a blank space
+  reset:
+    flow:
+      request:
+        url: https://accounts.google.com/signin/recovery
+        form:
+          email:
+            input: required
+      response:
+        email:
+          sender: noreply@google.com
+          body: [firstname, username, code]
+      change:
+        form:
+          newpassword:
+            masking: masked
+          repeat:
+            newpassword:
+              input: required
+              masking: masked
+      submit:
+        destination:
+          page: stub
+        sessions:
+          own: login
+  change:
+    url: https://accounts.google.com/EditPasswd
+    before:
+      form:
+        oldpassword:
+          input: required
+          masking: masked
+    form:
+      newpassword:
+        masking: revealable
+      repeat:
+        newpassword:
+          input: required
+          masking: revealable
+registration:
+  url: https://accounts.google.com/SignUp
+  form:
+    firstname:
+      input: required
+    lastname:
+      input: required
+    password:
+      masking: masked
+    repeat:
+      password:
+        input: required
+        masking: masked
+      email:
+        input: none
+    birthdate:
+      input: required
+    phone:
+      input: optional
+  notes:
+  - en: Registration accepts either an existing email address or a new Gmail
+        address to register.
+reviewed:
+  date: 2017-02-20T01:51:03.146Z

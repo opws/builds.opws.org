@@ -1,0 +1,91 @@
+name: Reddit
+password:
+  value:
+    length:
+      min: 6
+  reset:
+    flow:
+      request:
+        url: http://www.reddit.com/password
+        form:
+          username:
+            input: required
+      response:
+        email:
+          sender: reddit@reddit.com
+          body: [username, url]
+      change:
+        form:
+          newpassword:
+            masking: masked
+          repeat:
+            newpassword:
+              input: required
+              masking: masked
+      submit:
+        destination:
+          page: login
+        sessions:
+          own: logout
+        expire: now
+  change:
+    url: https://www.reddit.com/prefs/update/
+    form:
+      oldpassword:
+        input: required
+        masking: masked
+      newpassword:
+        masking: masked
+      repeat:
+        newpassword:
+          input: required
+          masking: masked
+username:
+  value:
+    length:
+      min: 3
+      max: 20
+  contents:
+    whitelist:
+      classes:
+      - alpha
+      - digit
+      strings: ['-', '_']
+registration:
+  url: https://www.reddit.com/login
+  form:
+    username:
+      input: required
+    password:
+      input: required
+      masking: masked
+    repeat:
+      password:
+        input: required
+        masking: masked
+      email:
+        input: none
+    email:
+      input: optional
+      masking: unmasked
+    captcha:
+      type: recaptcha
+      notes:
+      - en: Captcha is presented after entering email address.
+login:
+  url: https://www.reddit.com/login
+  form:
+    username:
+      input: required
+    password:
+      masking: masked
+    persist:
+      checkbox: unchecked
+legal:
+  documents:
+  - name: User Agreement
+    url: https://www.reddit.com/help/useragreement/
+  - name: Privacy Policy
+    url: https://www.reddit.com/help/privacypolicy/
+reviewed:
+  date: 2017-02-13T00:23:33.072Z

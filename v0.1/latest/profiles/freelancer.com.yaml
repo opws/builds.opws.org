@@ -1,0 +1,81 @@
+name: Freelancer
+password:
+  value:
+    length:
+      min: 6
+  contents:
+    required:
+    - atleast: 2
+      classes:
+      - upper
+      - lower
+      - digit
+  reset:
+    flow:
+      request:
+        url: https://m.freelancer.com/reset-password
+        form:
+          email:
+            input: required
+      response:
+        email:
+          sender: noreply@freelancer.com
+          body: [username, link]
+      change:
+        form:
+          newpassword:
+            masking: masked
+          repeat:
+            newpassword:
+              input: required
+              masking: masked
+      submit:
+        destination:
+          page: home
+        sessions:
+          own: login
+        expire: now
+  change:
+    url: https://www.freelancer.com/users/settings.php#PasswordSettings
+    form:
+      oldpassword:
+        input: required
+        masking: masked
+      newpassword:
+        masking: masked
+      repeat:
+        newpassword:
+          input: required
+          masking: masked
+thirdparty:
+  auth:
+    providers:
+    - facebook.com
+registration:
+  url: https://www.freelancer.com/signup
+  form:
+    email:
+      input: required
+    username:
+      input: required
+    password:
+      masking: masked
+    terms:
+      agreement: implicit
+legal:
+  documents:
+  - name: User Agreement
+    url: https://www.freelancer.com/about/terms
+  - name: Privacy Policy
+    url: https://www.freelancer.com/about/privacy
+login:
+  url: https://www.freelancer.com/login
+  form:
+    account:
+      accepts: [email, username]
+    password:
+      masking: masked
+    persist:
+      checkbox: unchecked
+reviewed:
+  date: 2017-02-17T11:02:39.024Z

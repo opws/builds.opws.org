@@ -1,0 +1,57 @@
+name: H&R Block
+password:
+  value:
+    length:
+      min: 8
+      max: 15
+    mustnot:
+    - en: contain the same character three consecutive times
+  contents:
+    blacklist:
+      classes:
+      - space
+  reset:
+    flow:
+      request:
+        url: https://idp.hrblock.com/idp/Authn/DForgotCredentials.html
+        form:
+          username:
+            input: required
+          notes:
+          - en: Also accepts a combination of first name, last
+                name, Social Security number, and date of birth.
+  change:
+    form:
+      oldpassword:
+        input: required
+    notes:
+    - en: Click "Account Settings" after logging in
+username:
+  reminder:
+    request:
+      url: https://idp.hrblock.com/idp/Authn/DForgotCredentials.html
+      form:
+        email:
+          input: required
+        notes:
+        - en: Also accepts a combination of first name, last
+              name, Social Security number, and date of birth.
+challenge:
+  questions:
+  - required: 1
+    options:
+    - In what city were you born?
+    - In what city was your first job?
+    - What is the middle name of your youngest child?
+    - What was the make and model of your first car?
+    - What was your high school mascot?
+    - What is your oldest sibling's birthday month and year?
+    - What was the last name of your 3rd grade teacher?
+    - In what city does your nearest sibling live?
+    - What street did you live on in 6th grade?
+registration:
+  url: https://idp.hrblock.com/idp/Authn/DCreateUser.html
+login:
+  url: https://idp.hrblock.com/idp/Authn/DUserLogin.html
+reviewed:
+  date: 2015-04-16T01:48:01.378Z

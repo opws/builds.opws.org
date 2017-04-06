@@ -1,0 +1,90 @@
+name: Crunchbase
+password:
+  value:
+    length:
+      min: 8
+      max: 128
+  reset:
+    flow:
+      request:
+        url: https://www.crunchbase.com/app/login
+        notes:
+        - en: Click the "Forgot password?" button.
+        form:
+          email:
+            input: required
+      response:
+        email:
+          sender: support@crunchbase.com
+          body: [firstname, url]
+      change:
+        form:
+          newpassword:
+            masking: masked
+          repeat:
+            newpassword:
+              input: required
+              masking: masked
+      submit:
+        destination:
+          page: home
+        sessions:
+          own: login
+        expire: now
+  change:
+    url: https://www.crunchbase.com/app/account
+    notes:
+    - en: Click the "Password" button.
+    - en: >
+        "Current password" input is not displayed when the account has no
+        password set (ie. when it was registered via third-party
+        authentication).
+    form:
+      oldpassword:
+        input: required
+        masking: masked
+      newpassword:
+        masking: masked
+      repeat:
+        newpassword:
+          input: required
+          masking: masked
+registration:
+  url: https://www.crunchbase.com/app/register
+  form:
+    email:
+      input: required
+    firstname:
+      input: required
+    lastname:
+      input: required
+    password:
+      masking: masked
+    repeat:
+      password:
+        masking: masked
+      email:
+        input: none
+    terms:
+      agreement: implicit
+thirdparty:
+  auth:
+    providers:
+    - linkedin.com
+    - facebook.com
+    - twitter.com
+login:
+  url: https://www.crunchbase.com/app/login
+  form:
+    email:
+      input: required
+    password:
+      masking: masked
+legal:
+  documents:
+  - name: Terms of Service
+    url: https://about.crunchbase.com/docs/terms-of-service/
+  - name: Privacy Policy
+    url: https://about.crunchbase.com/docs/privacy-policy/
+reviewed:
+  date: 2017-02-15T06:37:44.928Z

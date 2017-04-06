@@ -1,0 +1,20 @@
+name: DigitalOcean
+password:
+  value:
+    length:
+      min: 6
+  contents:
+    required:
+    - classes:
+      - alpha
+  reset:
+    flow:
+      request:
+        url: https://www.digitalocean.com/forgot_password/new
+        form:
+          email:
+            input: required
+  change:
+    url: https://www.digitalocean.com/settings#edit-password
+reviewed:
+  date: 2013-06-16T01:33:52Z

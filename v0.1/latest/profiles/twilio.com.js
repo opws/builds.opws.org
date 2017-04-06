@@ -1,0 +1,1 @@
+opws_jsonp_response({"name":"Twilio","password":{"reset":{"flow":{"request":{"url":"https://www.twilio.com/reset-password","form":{"email":{"input":"required"}}}}},"change":{"url":"https://www.twilio.com/user/settings#password-row"}},"reviewed":{"date":"2013-05-30T17:41:28Z"}},{"domain":"builds.opws.org","filename":"/v0.1/latest/profiles/twilio.com.js"})

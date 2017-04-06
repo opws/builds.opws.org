@@ -1,0 +1,76 @@
+name: Path
+password:
+  value:
+    length:
+      min: 6
+      max: 256
+    mustnot:
+    - en: be all the same letter
+    - en: be a slice of the alphabet forwards or backwards
+  contents:
+    required:
+    - classes:
+      - alpha
+  reset:
+    flow:
+      request:
+        url: https://path.com/forgot-password
+        form:
+          email:
+            input: required
+      response:
+        email:
+          sender: noreply@path.com
+          body: [firstname, url]
+      change:
+        form:
+          newpassword:
+            masking: masked
+          repeat:
+            newpassword:
+              input: required
+              masking: masked
+      submit:
+        destination:
+          page: home
+        sessions:
+          own: logout
+        expire: now
+  change:
+    url: https://path.com/account
+    form:
+      oldpassword:
+        input: required
+        masking: masked
+      newpassword:
+        masking: masked
+      repeat:
+        newpassword:
+          input: required
+          masking: masked
+    sessions:
+      own: logout
+registration:
+  url: https://path.com/signup
+  form:
+    fullname:
+      input: required
+    email:
+      input: required
+    password:
+      input: required
+      masking: masked
+    repeat:
+      email:
+        input: none
+      password:
+        input: none
+login:
+  url: https://path.com/login
+  form:
+    email:
+      input: required
+    password:
+      masking: masked
+reviewed:
+  date: 2017-02-20T13:05:18.328Z

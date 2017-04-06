@@ -1,0 +1,21 @@
+name: topcoder
+password:
+  value:
+    length:
+      min: 7
+      max: 30
+  contents:
+    required:
+    - classes:
+      - alpha
+      - digit
+      - punct
+  reset:
+    flow:
+      request:
+        url: http://www.topcoder.com/password-recovery/
+        form:
+          account:
+            accepts: [username, email]
+reviewed:
+  date: 2014-04-25T20:56:41Z

@@ -1,0 +1,1 @@
+opws_jsonp_response({"name":"Eventbrite","password":{"reset":{"flow":{"request":{"url":"https://www.eventbrite.com/resetpassword","form":{"email":{"input":"required"}}}}},"change":{"url":"https://www.eventbrite.com/password"}},"reviewed":{"date":"2013-10-22T06:29:22Z"}},{"domain":"builds.opws.org","filename":"/v0.1/latest/profiles/eventbrite.com.js"})

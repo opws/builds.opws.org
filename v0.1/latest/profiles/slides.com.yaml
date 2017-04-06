@@ -1,0 +1,61 @@
+name: Slides
+password:
+  value:
+    length:
+      min: 6
+      max: 128
+  contents:
+    required:
+    - classes:
+      - graph
+  change:
+    url: https://slides.com/users/edit#user_password
+    form:
+      oldpassword:
+        input: required
+      repeat:
+        newpassword:
+          input: none
+  reset:
+    flow:
+      request:
+        url: https://slides.com/users/password/new
+        form:
+          email:
+            input: required
+      response:
+        email:
+          sender: no-reply@slides.com
+          body: [link]
+      submit:
+        destination:
+          page: login
+username:
+  contents:
+    whitelist:
+      classes:
+      - alpha
+      - digit
+      strings: ['-', '_']
+registration:
+  url: https://slides.com/users/sign_up
+  form:
+    password:
+      input: required
+    repeat:
+      password:
+        input: none
+    captcha:
+      type: recaptcha
+login:
+  url: https://slides.com/users/sign_in
+  form:
+    persist:
+      checkbox: unchecked
+thirdparty:
+  auth:
+    providers:
+    - facebook.com
+    - google.com
+reviewed:
+  date: 2016-01-29T13:54:08.594Z

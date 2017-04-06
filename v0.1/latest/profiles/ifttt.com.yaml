@@ -1,0 +1,55 @@
+name: IFTTT
+password:
+  value:
+    length:
+      min: 6
+      max: 1024
+  contents:
+    required:
+    - classes:
+      - graph
+  reset:
+    flow:
+      request:
+        url: https://ifttt.com/forgot
+        form:
+          email:
+            input: required
+      response:
+        email:
+          sender: welcome@ifttt.com
+          body: [username, link]
+      submit:
+        sessions:
+          own: login
+        expire: now
+  change:
+    url: https://ifttt.com/settings/password
+    form:
+      oldpassword:
+        input: required
+username:
+  value:
+    length:
+      min: 3
+      max: 35
+  contents:
+    whitelist:
+      classes:
+      - alpha
+      - digit
+      strings: ['_']
+  change:
+    url: https://ifttt.com/settings/update_username
+login:
+  url: https://ifttt.com/session/new
+registration:
+  url: https://ifttt.com/join
+  form:
+    password:
+      input: required
+    repeat:
+      password:
+        input: none
+reviewed:
+  date: 2016-03-08T23:33:25.603Z

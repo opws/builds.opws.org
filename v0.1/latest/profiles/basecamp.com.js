@@ -1,0 +1,1 @@
+opws_jsonp_response({"name":"Basecamp","use":"37signals.com","reviewed":{"date":"2015-06-16T04:45:42.343Z"}},{"domain":"builds.opws.org","filename":"/v0.1/latest/profiles/basecamp.com.js"})

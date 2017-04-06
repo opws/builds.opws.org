@@ -1,0 +1,1 @@
+{"name":"WiBit.Net","password":{"reset":{"flow":{"request":{"url":"https://www.wibit.net/forgotPassword","form":{"email":{"input":"required"},"captcha":{"type":"letters"}}},"response":{"email":{"sender":"no-reply@wibit.net","body":["password"]}}}},"change":{"url":"https://www.wibit.net/myAccount"}},"reviewed":{"date":"2013-05-30T17:41:28Z"}}

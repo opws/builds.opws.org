@@ -1,0 +1,37 @@
+name: PayPal
+password:
+  value:
+    length:
+      min: 8
+      max: 20
+  contents:
+    required:
+    - atleast: 1
+      classes:
+      - digit
+      - punct
+    blacklist:
+      classes:
+      - space
+  reset:
+    flow:
+      request:
+        url: https://www.paypal.com/webapps/accountrecovery/passwordrecovery
+        form:
+          email:
+            input: required
+          captcha:
+            type: alphanumeric
+      response:
+        email:
+          sender: service@paypal.com
+          body: [code]
+  change:
+    url: https://www.paypal.com/us/cgi-bin/webscr?cmd=_profile-password-start
+    form:
+      oldpassword:
+        input: required
+    sessions:
+      own: logout
+reviewed:
+  date: 2017-02-08T04:42:35.421Z
